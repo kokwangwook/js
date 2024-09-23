@@ -1,71 +1,17 @@
-function createCalculator() {
-    // 스타일시트 로드
-    var link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = 'https://kokwangwook.github.io/js/styles.css';
-    document.head.appendChild(link);
+<script src="https://kokwangwook.github.io/js/carInspectionFine.js"></script>
 
-    // 계산기 컨테이너 생성
-    var container = document.createElement('div');
-    container.className = 'calculator-container';
+<div id="calculator">
+    <h3>자동차 검사 과태료 계산기</h3>
+    <label for="days">검사 지연 일수:</label>
+    <input type="number" id="days" min="0">
+    <button onclick="calculateAndDisplayFine()">과태료 계산</button>
+    <div id="result"></div>
+</div>
 
-    // 제목 추가
-    var title = document.createElement('h2');
-    title.textContent = '자동차 검사 과태료 계산기';
-    container.appendChild(title);
-
-    // 입력 필드 생성
-    var label = document.createElement('label');
-    label.textContent = '검사 지연 일수 입력:';
-    container.appendChild(label);
-
-    var input = document.createElement('input');
-    input.type = 'number';
-    input.id = 'days';
-    input.placeholder = '검사 지연 일수를 입력하세요';
-    input.min = '0';
-    container.appendChild(input);
-
-    // 버튼 생성
-    var button = document.createElement('button');
-    button.textContent = '과태료 계산';
-    button.onclick = calculateAndDisplayFine;
-    container.appendChild(button);
-
-    // 결과 표시 영역 생성
-    var result = document.createElement('div');
-    result.id = 'result';
-    container.appendChild(result);
-
-    // 페이지에 계산기 추가
-    document.body.appendChild(container);
-}
-
+<script>
 function calculateAndDisplayFine() {
     var days = document.getElementById('days').value;
-    if (days === "" || isNaN(days) || days < 0) {
-        alert("올바른 지연 일수를 입력해주세요.");
-        return;
-    }
-    var fine = calculateFine(parseInt(days));
+    var fine = calculateFine(days);
     document.getElementById('result').innerHTML = '과태료: ' + fine.toLocaleString() + '원';
 }
-
-function calculateFine(daysOverdue) {
-    let fine = 0;
-    if (daysOverdue <= 30) {
-        fine = 40000;
-    } else if (daysOverdue <= 90) {
-        fine = 40000 + Math.ceil((daysOverdue - 30) / 3) * 20000;
-    } else {
-        fine = 600000;
-    }
-    return Math.min(fine, 600000);
-}
-
-// 페이지 로드 시 계산기 생성
-if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", createCalculator);
-} else {
-    createCalculator();
-}
+</script>
