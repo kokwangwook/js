@@ -2,7 +2,7 @@ function createCalculator() {
     // 스타일시트 로드
     var link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = 'https://kokwangwook.github.io/js/styles.css'; // CSS 파일의 실제 URL로 변경하세요
+    link.href = 'https://kokwangwook.github.io/js/styles.css';
     document.head.appendChild(link);
 
     // 계산기 컨테이너 생성
@@ -52,9 +52,20 @@ function calculateAndDisplayFine() {
 }
 
 function calculateFine(daysOverdue) {
-    // 기존의 과태료 계산 로직
-    // ...
+    let fine = 0;
+    if (daysOverdue <= 30) {
+        fine = 40000;
+    } else if (daysOverdue <= 90) {
+        fine = 40000 + Math.ceil((daysOverdue - 30) / 3) * 20000;
+    } else {
+        fine = 600000;
+    }
+    return Math.min(fine, 600000);
 }
 
 // 페이지 로드 시 계산기 생성
-window.onload = createCalculator;
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", createCalculator);
+} else {
+    createCalculator();
+}
