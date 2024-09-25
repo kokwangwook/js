@@ -1,0 +1,127 @@
+body {
+    font-family: 'Nanum Gothic', sans-serif;
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin: 0;
+    font-size: 15px;
+}
+.container {
+    max-width: 600px;
+    margin: auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+}
+h2, h3 {
+    text-align: center;
+    color: #333;
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+}
+input[type="number"], input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 15px;
+}
+input[type="number"]::placeholder {
+    color: #aaa;
+}
+.buttons {
+    text-align: center;
+    margin-bottom: 20px;
+}
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+    font-family: 'Nanum Gothic', sans-serif;
+    transition: background-color 0.3s;
+}
+#calculateBtn, #calculateBtn2 {
+    background-color: #28a745;
+    color: #fff;
+}
+#calculateBtn:hover, #calculateBtn2:hover {
+    background-color: #218838;
+}
+#resetBtn, #resetBtn2 {
+    background-color: #dc3545;
+    color: #fff;
+}
+#resetBtn:hover, #resetBtn2:hover {
+    background-color: #c82333;
+}
+.result {
+    background-color: #e9ecef;
+    padding: 20px;
+    border-radius: 4px;
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    min-height: 50px;
+}
+.error {
+    color: #dc3545;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+.section {
+    margin-bottom: 60px;
+}
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+    button {
+        width: 100%;
+        margin: 10px 0;
+    }
+}
+
+.input-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.input-group-inline {
+    flex: 1;
+    margin-right: 10px;
+}
+.input-group-inline:last-child {
+    margin-right: 0;
+}
+.input-group-inline input {
+    width: 100%;
+}
+
+.calculator-box {
+    border: 2px solid #007bff;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 40px;
+}
+
+.calculator-box h1 {
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 30px;
+}
