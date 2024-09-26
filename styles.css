@@ -46,3 +46,21 @@
     text-align: center;
     font-weight: bold;
 }
+
+.custom-title {
+    position: relative;
+    padding-left: 15px;
+    min-height: 30px; /* 명시적으로 최소 높이 설정 */
+}
+
+.custom-title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 80%;
+    background-color: #4a90e2;
+    border-radius: 2px;
+}
